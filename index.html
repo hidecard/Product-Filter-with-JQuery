@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Filter</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body class="bg-light py-4">
+
+  <div class="container">
+    <h1 class="text-center mb-4">Product Filter</h1>
+
+    <!-- Filter Buttons -->
+    <div class="d-flex justify-content-center mb-4">
+      <button class="btn btn-primary me-2 active" id="all">Show All</button>
+      <button class="btn btn-primary me-2" id="fruit">Fruit</button>
+      <button class="btn btn-primary me-2" id="vegetable">Vegetable</button>
+      <button class="btn btn-primary" id="meat">Meat</button>
+    </div>
+
+    <!-- Parent Container -->
+    <div id="parent" class="row g-3">
+      <!-- Example Items -->
+      <div class="col-md-3 box fruit">
+        <div class="card">
+          <img src="./img/water.jpeg" class="card-img-top img-fluid" alt="Watermelon" style="height: 200px; object-fit: cover;">
+          <div class="card-body text-center">
+            <h5 class="card-title">Watermelon (large)</h5>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 box meat">
+        <div class="card">
+          <img src="./img/chicken.jpg" class="card-img-top img-fluid" alt="Chicken" style="height: 200px; object-fit: cover;">
+          <div class="card-body text-center">
+            <h5 class="card-title">Chicken</h5>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 box fruit">
+        <div class="card">
+          <img src="./img/pip.png" class="card-img-top img-fluid" alt="PipApple" style="height: 200px; object-fit: cover;">
+          <div class="card-body text-center">
+            <h5 class="card-title">PipApple</h5>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 box vegetable">
+        <div class="card">
+          <img src="./img/carrott.webp" class="card-img-top img-fluid" alt="Carrot" style="height: 200px; object-fit: cover;">
+          <div class="card-body text-center">
+            <h5 class="card-title">Carrot</h5>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 box meat">
+        <div class="card">
+          <img src="./img/beef.jpg" class="card-img-top img-fluid" alt="Beef" style="height: 200px; object-fit: cover;">
+          <div class="card-body text-center">
+            <h5 class="card-title">Beef</h5>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 box vegetable">
+        <div class="card">
+          <img src="./img/fresh-green-beans-733x733-420x420.jpg" class="card-img-top img-fluid" alt="Green Beans" style="height: 200px; object-fit: cover;">
+          <div class="card-body text-center">
+            <h5 class="card-title">Fresh Green Beans</h5>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      <!-- Add more items with respective classes here -->
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+  <script>
+    var $btns = $('.btn').click(function () {
+      if (this.id == 'all') {
+        $('#parent > div').fadeIn(450);
+      } else {
+        var $el = $('.' + this.id).fadeIn(450);
+        $('#parent > div').not($el).hide();
+      }
+      $btns.removeClass('active');
+      $(this).addClass('active');
+    });
+  </script>
+
+</body>
+
+</html>
