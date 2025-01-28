@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Product Rating</title>
-  <!-- Font Awesome for stars -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     .stars {
@@ -26,8 +25,7 @@
 <body style="text-align: center; margin-top: 50px; font-family: Arial, sans-serif;">
 
   <h2>Rate This Product</h2>
-  <!-- Product stars with product ID -->
-  <div class="stars" data-product-id="12345"> <!-- Replace 12345 with your product ID -->
+  <div class="stars" data-product-id="12345">
     <i class="fas fa-star star" data-value="1"></i>
     <i class="fas fa-star star" data-value="2"></i>
     <i class="fas fa-star star" data-value="3"></i>
@@ -36,21 +34,17 @@
   </div>
   <p style="margin-top: 10px;">Your Rating: <span id="rating-value">0</span>/5</p>
   <p>For Product ID: <span id="product-id">N/A</span></p>
-
-  <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
     $(document).ready(function () {
       // Click event for stars
       $('.star').click(function () {
-        const rating = $(this).data('value'); // Get the clicked star's value
-        const productId = $(this).closest('.stars').data('product-id'); // Get the product ID
-        $('#rating-value').text(rating); // Show the rating
-        $('#product-id').text(productId); // Display the product ID
-        $('.star').removeClass('selected'); // Clear previous selection
-        $(this).prevAll().addBack().addClass('selected'); // Highlight selected stars
-
-        // Optional: Log the rating and product ID (for backend or debug)
+        const rating = $(this).data('value');
+        const productId = $(this).closest('.stars').data('product-id');
+        $('#rating-value').text(rating);
+        $('#product-id').text(productId);
+        $('.star').removeClass('selected');
+        $(this).prevAll().addBack().addClass('selected');
         console.log(`Product ID: ${productId}, Rating: ${rating}`);
       });
     });
