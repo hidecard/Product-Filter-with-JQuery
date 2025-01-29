@@ -1,5 +1,4 @@
 <?php
-// Database connection
 $conn = new mysqli('localhost', 'root', 'hidecard', 'testrate');
 
 $customer_id = 2;
